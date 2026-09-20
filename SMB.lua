@@ -1,4 +1,4 @@
-local plugins = odh_shared_plugins
+local shared = odh_shared_plugins
 
 local coreGui = game:GetService("CoreGui")
 local players = game:GetService("Players")
@@ -302,7 +302,9 @@ coreGui.DescendantAdded:Connect(function(item)
     end
 end)
 
-local section = plugins.AddSection("Shoot Murdh")
+local smb_tab = shared.CreateTab("Shoot Murdh", "/axioriasolver/testplugin/refs/heads/main/icon")
+
+local section = smb_tab:AddSection("Shoot Murdh", "")
 
 section:AddLabel("Credits: Arkinigga")
 
@@ -331,21 +333,21 @@ section:AddSlider("Button height Y", 20, 150, buttonHeight, function(value)
     updateSize()
 end)
 
-section:AddToggle("Disable gun auto unequip", function(value)
-    keepGunEnabled = value
+section:AddToggle("Disable gun auto unequip", function(state)
+    keepGunEnabled = state
 
-    if not value then
+    if not state then
         stopGun()
     end
 end)
 
-section:AddToggle("Drag", function(value)
-    draggingEnabled = value
+section:AddToggle("Drag", function(state)
+    draggingEnabled = state
     dragging = false
     dragInput = nil
 end)
 
-section:AddToggle("Hide button text", function(value)
-    hideText = value
+section:AddToggle("Hide button text", function(state)
+    hideText = state
     updateText()
 end)
