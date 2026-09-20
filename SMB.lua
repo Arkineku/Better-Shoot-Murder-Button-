@@ -302,7 +302,7 @@ coreGui.DescendantAdded:Connect(function(item)
     end
 end)
 
-local smb_tab = shared.CreateTab("Shoot Murdh", "/axioriasolver/testplugin/refs/heads/main/icon")
+local smb_tab = shared.CreateTab("Shoot Murdh", "/Arkineku/Better-Shoot-Murder-Button-/refs/heads/main/Button")
 
 local section = smb_tab:AddSection("Shoot Murdh", "")
 
